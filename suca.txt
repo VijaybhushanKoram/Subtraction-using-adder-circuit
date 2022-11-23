@@ -1,0 +1,23 @@
+module suca(
+input [3:0]a,
+input [3:0]b,
+input cin,
+output [3:0]s,
+wire [3:0]x,
+wire c1,c2,c3,c4
+    );
+assign x[3:0]=~b[3:0];
+
+assign s[0]=a[0]^x[0]^cin;
+assign c1=a[0]&x[0]|a[0]&cin|x[0]&cin;
+
+assign s[1]=a[1]^x[1]^c1;
+assign c2=a[1]&x[1]|a[1]&cin|x[1]&cin;
+
+assign s[2]=a[2]^x[2]^c2;
+assign c3=a[2]&x[2]|a[2]&cin|x[2]&cin;
+
+assign s[3]=a[3]^x[3]^c3;
+assign c4=a[3]&x[3]|a[3]&cin|x[3]&cin;
+
+endmodule
